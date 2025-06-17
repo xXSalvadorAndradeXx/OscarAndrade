@@ -503,6 +503,24 @@
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                border-top: 1px solid var(--secondary-color);
+                box-shadow: 0 5px 10px rgba(212, 175, 55, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
             }
             
             .mobile-menu {
@@ -540,7 +558,7 @@
         <div class="container header-container">
             <a href="#" class="logo">Dr. <span>Andrade</span></a>
             <nav>
-                <ul>
+                <ul id="menu">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#perfil">Perfil</a></li>
                     <li><a href="#especialidades">Especialidades</a></li>
@@ -548,7 +566,7 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu">
+            <div class="mobile-menu" id="mobileMenu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -745,7 +763,12 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <h3>Redes Profesionales</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form>
@@ -811,24 +834,49 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Dr. Oscar Ernesto Andrade Montoya. Todos los derechos reservados. | Abogado en El Salvador</p>
+                <p>&copy; 2023 Dr. Oscar Ernesto Andrade Montoya. Todos los derechos reservados. | Abogado en El Salvador</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menu = document.getElementById('menu');
+            
+            mobileMenu.addEventListener('click', function() {
+                menu.classList.toggle('show');
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                // Cambiar el ícono entre bars y times
+                const icon = this.querySelector('i');
+                if (menu.classList.contains('show')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Cerrar el menú al hacer clic en un enlace
+            const menuLinks = document.querySelectorAll('#menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('show');
+                    mobileMenu.querySelector('i').classList.remove('fa-times');
+                    mobileMenu.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
