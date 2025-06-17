@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Oscar Ernesto Andrade Montoya | Abogado en El Salvador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #D4AF37;
+            --accent-color: #FFD700;
+            --light-color: #f5f5f5;
+            --dark-color: #121212;
+            --text-color: #e0e0e0;
+            --text-light: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--dark-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--secondary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary-color);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            font-weight: 300;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0 10px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        /* Specializations */
+        .specializations {
+            background-color: var(--primary-color);
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .spec-card {
+            background: var(--dark-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .spec-icon {
+            font-size: 50px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .spec-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .spec-card p {
+            color: var(--text-light);
+        }
+        
+        /* Education */
+        .education-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start;
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .education-icon {
+            font-size: 30px;
+            color: var(--secondary-color);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        
+        .education-content {
+            flex: 1;
+        }
+        
+        .education-title {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .education-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .education-date {
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        /* Achievements */
+        .achievements {
+            background-color: var(--primary-color);
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-card {
+            background: var(--dark-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.05);
+            text-align: center;
+            border: 1px solid var(--secondary-color);
+        }
+        
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .achievement-title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            border-top: 1px solid var(--secondary-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: var(--dark-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.05);
+            border: 1px solid var(--secondary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--secondary-color);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--secondary-color);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Dr. <span>Andrade</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#formacion">Formación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Dr. Oscar Ernesto Andrade Montoya</h1>
+                <h2 class="hero-subtitle">Abogado Especialista en El Salvador</h2>
+                <p>Excelencia jurídica con más de 20 años de experiencia defendiendo sus derechos</p>
+                <div class="btn-group">
+                    <a href="#contacto" class="btn">Consulta Personalizada</a>
+                    <a href="#especialidades" class="btn btn-outline">Ver Especialidades</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="perfil">
+        <div class="container">
+            <h2 class="section-title">Perfil Profesional</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Experiencia y <span class="highlight">Excelencia Jurídica</span> en El Salvador</h3>
+                    <p>El <strong>Dr. Oscar Ernesto Andrade Montoya</strong> es un destacado profesional del derecho con una trayectoria de más de dos décadas en el ejercicio jurídico en <span class="highlight">El Salvador</span>, especializado en <span class="highlight">Derecho Corporativo</span> y <span class="highlight">Derecho Civil</span>.</p>
+                    <p>Graduado con <span class="highlight">honores académicos</span> de la Universidad de El Salvador, ha representado con éxito a más de <span class="highlight">150 empresas</span> y <span class="highlight">300 clientes particulares</span> en casos de alta complejidad en el territorio salvadoreño.</p>
+                    <p>Su enfoque se caracteriza por una <span class="highlight">atención personalizada</span>, análisis estratégico de cada caso y conocimiento profundo del <span class="highlight">sistema legal salvadoreño</span>.</p>
+                    <p>Miembro activo del <span class="highlight">Colegio de Abogados de El Salvador</span> y del <span class="highlight">Ilustre Colegio de Abogados de San Salvador</span>.</p>
+                    <div class="signature">Dr. Oscar E. Andrade Montoya</div>
+                </div>
+                <div class="about-image">
+                    <img src="/29366116_1652646544789897_3444594068091305984_n.jpg" alt="Dr. Oscar Ernesto Andrade Montoya">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="section specializations" id="especialidades">
+        <div class="container">
+            <h2 class="section-title">Especialidades Jurídicas</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Derecho Corporativo</h3>
+                    <p>Asesoría integral a empresas en constitución, fusiones, adquisiciones y gobierno corporativo según legislación salvadoreña.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Contratos Comerciales</h3>
+                    <p>Elaboración, revisión y negociación de contratos mercantiles bajo el Código de Comercio de El Salvador.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Litigio Civil</h3>
+                    <p>Representación en juicios civiles ante los tribunales salvadoreños, defensa de derechos patrimoniales.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Resolución de Conflictos</h3>
+                    <p>Mediación y arbitraje para solución alternativa de controversias según la Ley de Mediación de El Salvador.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Derecho Mercantil</h3>
+                    <p>Asesoría en operaciones mercantiles y derecho societario conforme a la legislación salvadoreña.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Asesoría Legal Preventiva</h3>
+                    <p>Análisis de riesgos jurídicos y diseño de estrategias legales preventivas para empresas en El Salvador.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="formacion">
+        <div class="container">
+            <h2 class="section-title">Formación Académica</h2>
+            
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Doctorado en Derecho Corporativo</h3>
+                    <p class="education-subtitle">Universidad de El Salvador - Mención Honorífica</p>
+                    <p class="education-date">2005 - 2008</p>
+                    <p>Tesis: "Regulación corporativa en el contexto jurídico salvadoreño"</p>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Maestría en Derecho Civil</h3>
+                    <p class="education-subtitle">Universidad de El Salvador</p>
+                    <p class="education-date">2000 - 2002</p>
+                    <p>Especialización en contratos y obligaciones civiles según Código Civil salvadoreño</p>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Licenciatura en Jurisprudencia y Ciencias Jurídicas</h3>
+                    <p class="education-subtitle">Universidad de El Salvador - Excelencia Académica</p>
+                    <p class="education-date">1994 - 1999</p>
+                    <p>Promedio general: 9.5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section achievements">
+        <div class="container">
+            <h2 class="section-title">Logros Profesionales</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number">20+</div>
+                    <div class="achievement-title">Años de Experiencia</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">150+</div>
+                    <div class="achievement-title">Empresas Asesoradas</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">98%</div>
+                    <div class="achievement-title">Casos Exitosos</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">25+</div>
+                    <div class="achievement-title">Conferencias Impartidas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>Edificio Torre Futura, Piso 10</p>
+                                <p>Colonia Escalón, San Salvador</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p>+503 2234 5678</p>
+                                <p>+503 7987 6543 (WhatsApp)</p>
+                                <p>Lunes a Viernes: 8:00 - 17:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>contacto@drandradeabogado.sv</p>
+                                <p>asesorias@drandradeabogado.sv</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Área de Consulta</label>
+                            <select id="service" name="service" class="form-group input">
+                                <option value="">Seleccione una especialidad</option>
+                                <option value="corporativo">Derecho Corporativo</option>
+                                <option value="contratos">Contratos Comerciales</option>
+                                <option value="civil">Litigio Civil</option>
+                                <option value="conflictos">Resolución de Conflictos</option>
+                                <option value="mercantil">Derecho Mercantil</option>
+                                <option value="preventiva">Asesoría Legal Preventiva</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Detalle de su consulta</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Solicitar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Dr. Oscar Ernesto Andrade Montoya</h3>
+                    <p>Abogado Especialista en Derecho Corporativo y Civil con más de 20 años de experiencia profesional en El Salvador.</p>
+                    <p>Comprometido con la excelencia jurídica y la satisfacción del cliente.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Áreas de Práctica</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Derecho Corporativo</a></li>
+                        <li><a href="#">Contratos Comerciales</a></li>
+                        <li><a href="#">Litigio Civil</a></li>
+                        <li><a href="#">Resolución de Conflictos</a></li>
+                        <li><a href="#">Derecho Mercantil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Torre Futura, Piso 10, San Salvador</p>
+                    <p><i class="fas fa-phone"></i> +503 2234 5678</p>
+                    <p><i class="fas fa-envelope"></i> contacto@drandradeabogado.sv</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dr. Oscar Ernesto Andrade Montoya. Todos los derechos reservados. | Abogado en El Salvador</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
