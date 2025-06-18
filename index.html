@@ -1088,7 +1088,7 @@ footer {
                    
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nombre Completo</label>
                             <input type="text" id="name" name="name" required>
@@ -1157,6 +1157,35 @@ footer {
     </footer>
 
     <script>
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+  
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxlZ-bpsJdDStGBrvzacRATvjNBdrEs6UCB7Z5f2Y3fV90EDgZwQ9VPKoc-aMEiHfr1/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(data).toString()
+    });
+    
+    const result = await response.json();
+    if(result.success) {
+      alert('Consulta enviada con éxito');
+      e.target.reset();
+    } else {
+      throw new Error('Error al enviar');
+    }
+  } catch (error) {
+    alert('Error al enviar la consulta. Por favor intente nuevamente.');
+    console.error(error);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Animación del menú móvil
     const mobileMenu = document.querySelector('.mobile-menu');
